@@ -80,8 +80,45 @@ public class SumOfOddNumbers {
         sc.close();
     }
 }
+
 ✔️ FACTORIAL
 int product = 1;   // start at 1, not 0
 for (int i = 1; i <= n; i++) {
     product = product * i;   // multiply step by step
+}
+
+✔️ Prime number check
+import java.util.Scanner;
+
+public class PrimeCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        boolean isPrime = true;
+
+        if (n <= 1) {
+            isPrime = false;  // 0 and 1 are not prime
+        } else {
+            for (int i = 2; i <= Math.sqrt(n); i++) //Because if n = a × b, then:at least one of a or b will be ≤ √n. 
+                                                        Example: For n = 36, pairs are (2,18), (3,12), (6,6).
+                                                        Once you reach 6 (which is √36), you’ve already found all factors.
+{
+                if (n % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println(n + " is a prime number.");
+        } else {
+            System.out.println(n + " is not a prime number.");
+        }
+
+        sc.close();
+    }
 }
