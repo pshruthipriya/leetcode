@@ -187,3 +187,130 @@ public class PalindromeChecker {
     }
 }
 
+
+✔️Fibonacci
+import java.util.Scanner;
+
+public class FibonacciIterative {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter how many terms: ");
+        int n = sc.nextInt();
+
+        int a = 0, b = 1;
+
+        System.out.print("Fibonacci Series: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a + " ");  // Print current number
+            int next = a + b;           // Calculate next number
+            a = b;                      // Move forward
+            b = next;                   // Move forward
+        }
+    }
+}
+
+✔️Swapping using temp
+        int temp = a; // store a in temp
+        a = b;        // assign b to a
+        b = temp;     // assign temp (original a) to b
+
+
+ ✔️ Swap without temp using arithmetic
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+✔️reversing a string
+import java.util.Scanner;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        String reversed = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);  // add character from end
+        }
+
+        System.out.println("Reversed string: " + reversed);
+    }
+}
+✔️revese string Using StringBuilder
+import java.util.Scanner;
+
+public class ReverseStringBuilder {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        StringBuilder sb = new StringBuilder(str);
+        sb.reverse();
+
+        System.out.println("Reversed string: " + sb.toString());
+    }
+}
+
+✔️ Reverse an Array
+import java.util.Scanner;
+
+public class ReverseArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // Reverse array using for loop
+        for (int i = 0, j = n - 1; i < j; i++, j--) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        System.out.println("Reversed array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+reverse only a part of a string
+import java.util.Scanner;
+
+public class ReversePartString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        System.out.print("Enter start index to reverse: ");
+        int start = sc.nextInt();
+
+        System.out.print("Enter end index to reverse: ");
+        int end = sc.nextInt();
+
+        // Extract parts
+        String before = str.substring(0, start);
+        String toReverse = str.substring(start, end + 1);
+        String after = str.substring(end + 1);
+
+        // Reverse the middle part
+        String reversed = new StringBuilder(toReverse).reverse().toString();
+
+        // Combine all parts
+        String result = before + reversed + after;
+
+        System.out.println("Modified string: " + result);
+    }
+}
